@@ -1,11 +1,18 @@
 const express = require("express");
+const client = require("../configs/redis")
 const Product = require("../models/bestSellerModel");
 
 const router = express.Router();
 
+// console.log(client);
+
 router.post("", async(req, res) => {
     try{
         const product = await Product.create(req.body);
+
+        const products = await Product.find({}).lean().exec();
+
+        client.set("bestsellers", JSON.stringify(products));
 
         return res.status(200).send(product);
     }
@@ -17,9 +24,37 @@ router.post("", async(req, res) => {
 
 router.get("", async(req, res) => {
     try{
-        const product = await Product.find({}).lean().exec();
+        const page = +req.query.page || 1;
+        const pageSize = +req.query.size || 21;
 
-        return res.status(200).send(product);
+        client.get(`bestsellers`, async function(err, fetchedProducts) {
+            if(fetchedProducts) {
+                const products = JSON.parse(fetchedProducts);
+
+                return res.status(201).send(products);
+            }
+            else {
+                try{
+                    const offset = (page - 1) * pageSize;
+
+                    const products = await Product.find({}).lean().exec();
+
+                    client.set(`bessellers`, JSON.stringify(products));
+
+                    return res.status(200).send(products);
+                }
+                catch(err) {
+                    return res.status(500).send({error: err.message});
+                }
+            }
+        })
+
+        // const product = await Product.find({}).lean().exec();
+
+        // client.set("bestsellers", JSON.stringify(product));
+        // console.log(product);
+
+        // return res.status(400).send(product);
     }
     catch(err) {
         return res.status(401).send({error: err.message});

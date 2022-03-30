@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const bestSellerController = require("./controllers/bestSellerController");
+const {register, login}= require("../src/controllers/authController")
 
 const app = express();
 

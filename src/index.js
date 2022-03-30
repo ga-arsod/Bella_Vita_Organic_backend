@@ -10,4 +10,8 @@ app.use(express.json());
 
 app.use("/bestsellers", bestSellerController);
 
+app.use("/login", login);
+
+app.use("/register", register);
+
 module.exports = app;

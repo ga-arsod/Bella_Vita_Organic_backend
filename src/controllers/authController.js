@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config()
 
 const newToken=(user)=>{
-    return jwt.sign({user}, process.env.SECTRET_KEY);
+    return jwt.sign({user}, `${process.env.SECTRET_KEY}`);
 }
 
 const register = async (req, res) => {

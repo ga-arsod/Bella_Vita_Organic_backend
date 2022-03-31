@@ -2,7 +2,11 @@ const express = require("express");
 const cors = require("cors");
 
 const bestSellerController = require("./controllers/bestSellerController");
-const {register, login}= require("../src/controllers/authController")
+const login= require("../src/controllers/logincontroller");
+const register= require("../src/controllers/registerController")
+// const {register, login}= require("../src/controllers/authController")
+
+
 
 const app = express();
 
@@ -11,8 +15,8 @@ app.use(express.json());
 
 app.use("/bestsellers", bestSellerController);
 
-app.post("/login", login);
+app.use("/login", login);
 
-app.post("/register", register);
+app.use("/register", register);
 
 module.exports = app;

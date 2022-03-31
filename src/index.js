@@ -11,8 +11,8 @@ app.use(express.json());
 
 app.use("/bestsellers", bestSellerController);
 
-app.use("/login", login);
+app.post("/login", login);
 
-app.use("/register", register);
+app.post("/register", register);
 
 module.exports = app;

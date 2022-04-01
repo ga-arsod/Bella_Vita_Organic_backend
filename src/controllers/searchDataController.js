@@ -1,6 +1,6 @@
 const express = require("express");
 const client = require("../configs/redis")
-const Product = require("../models/bestsellersModel");
+const Product = require("../models/searchDataModel");
 
 const router = express.Router();
 

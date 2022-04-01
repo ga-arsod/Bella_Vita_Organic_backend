@@ -6,6 +6,8 @@ const newToken=(user)=>{
     return jwt.sign({user}, `${process.env.SECTRET_KEY}`);
 }
 
+
+// Authcontroller doesnt include validation, registerController and loginController does
 const register = async (req, res) => {
     try {
         var user = await User.findOne({ email: req.body.email })
@@ -42,4 +44,4 @@ const login = async(req, res) => {
     }
 }
 
-module.exports = { register, login };
+// module.exports = { register, login };

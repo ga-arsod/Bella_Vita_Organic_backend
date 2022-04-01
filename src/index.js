@@ -6,6 +6,13 @@ const allProducts = require("./controllers/allProductsController");
 const searchData = require("./controllers/searchDataController");
 const {register, login}= require("../src/controllers/authController")
 
+//Updated Validation for these paths
+const login= require("../src/controllers/logincontroller");
+const register= require("../src/controllers/registerController")
+// const {register, login}= require("../src/controllers/authController") ---->this register and login doesnt contain validation
+
+
+
 const app = express();
 
 app.use(cors());

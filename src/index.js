@@ -4,11 +4,6 @@ const cors = require("cors");
 const bestSellerController = require("./controllers/bestSellerController");
 const allProducts = require("./controllers/allProductsController");
 const searchData = require("./controllers/searchDataController");
-<<<<<<< HEAD
-
-=======
-// const {register, login}= require("../src/controllers/authController")
->>>>>>> b1e144f17b1ad55aded66798e1601aaa19996a55
 
 //Updated Validation for these paths
 const login= require("../src/controllers/logincontroller");

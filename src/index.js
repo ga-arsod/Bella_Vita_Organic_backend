@@ -4,7 +4,6 @@ const cors = require("cors");
 const bestSellerController = require("./controllers/bestSellerController");
 const allProducts = require("./controllers/allProductsController");
 const searchData = require("./controllers/searchDataController");
-// const {register, login}= require("../src/controllers/authController")
 
 //Updated Validation for these paths
 const login= require("../src/controllers/logincontroller");

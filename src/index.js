@@ -27,9 +27,7 @@ app.get("/", async(req, res) => {
     }
 })
 
-app.use("/bestsellers", async(req,res) => {
-    return res.send("Bestsellers")
-});
+app.use("/bestsellers", bestSellerController);
 app.use("/allProducts", allProducts);
 app.use("/searchData", searchData);
 app.use("/combos",combo)

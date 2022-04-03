@@ -54,7 +54,9 @@ router.get("", async(req, res) => {
     // }
 
     try{
-        return res.status(300).send("Bessdfsdfsdf");
+
+        const product = await Product.find({}).lean().exec();
+        return res.status(300).send(product);
 
     }
     catch(err) {

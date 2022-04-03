@@ -20,7 +20,7 @@ app.use(express.json());
 
 app.get("/", async(req, res) => {
     try{
-        res.status(200).send("HEllo")
+        res.status(200).send("Welcome to the clone of bella vita organic")
     }
     catch(err) {
         res.status(400).send(err)

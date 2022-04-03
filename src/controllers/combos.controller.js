@@ -16,7 +16,7 @@ router.post("", async(req, res) => {
 
 router.get("", async(req, res) => {
     try{
-        const combos = await Combos.find();
+        const combos = await Combos.find().lean().exec();
 
         return res.status(200).send(combos);
     }

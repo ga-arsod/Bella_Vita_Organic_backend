@@ -18,6 +18,6 @@ const productSchema = new mongoose.Schema(
     }
 );
 
-const Product = mongoose.model("all_products", productSchema);
+const Product = mongoose.model("bv_allproducts", productSchema);
 
 module.exports = Product;

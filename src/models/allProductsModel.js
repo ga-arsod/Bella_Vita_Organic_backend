@@ -13,7 +13,7 @@ const productSchema = new mongoose.Schema(
         Qty: {type: Number, required: true}
     },
     {
-        versionKey: true,
+        versionKey: false,
         timestamps: true
     }
 );

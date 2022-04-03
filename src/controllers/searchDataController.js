@@ -12,7 +12,7 @@ router.post("", async(req, res) => {
 
         const products = await Product.find({}).lean().exec();
 
-        client.set("bestsellers", JSON.stringify(products));
+        client.set("searchData", JSON.stringify(products));
 
         return res.status(200).send(product);
     }
@@ -27,7 +27,7 @@ router.get("", async(req, res) => {
         const page = +req.query.page || 1;
         const pageSize = +req.query.size || 21;
 
-        client.get(`bestsellers`, async function(err, fetchedProducts) {
+        client.get(`searchData`, async function(err, fetchedProducts) {
             if(fetchedProducts) {
                 const products = JSON.parse(fetchedProducts);
 
@@ -39,7 +39,7 @@ router.get("", async(req, res) => {
 
                     const products = await Product.find({}).lean().exec();
 
-                    client.set(`bessellers`, JSON.stringify(products));
+                    client.set(`searchData`, JSON.stringify(products));
 
                     return res.status(200).send(products);
                 }

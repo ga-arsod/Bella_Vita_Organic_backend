@@ -13,11 +13,11 @@ const productSchema = new mongoose.Schema(
         Qty: {type: Number, required: true}
     },
     {
-        versionKey: false,
+        versionKey: true,
         timestamps: true
     }
 );
 
-const Product = mongoose.model("bv_allproducts", productSchema);
+const Product = mongoose.model("all_products", productSchema);
 
 module.exports = Product;

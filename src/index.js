@@ -4,6 +4,7 @@ const cors = require("cors");
 const bestSellerController = require("./controllers/bestSellerController");
 const allProducts = require("./controllers/allProductsController");
 const searchData = require("./controllers/searchDataController");
+const combo = require("./controllers/combos.controller")
 
 //Updated Validation for these paths
 const login= require("../src/controllers/logincontroller");
@@ -20,7 +21,7 @@ app.use(express.json());
 app.use("/bestsellers", bestSellerController);
 app.use("/allProducts", allProducts);
 app.use("/searchData", searchData);
-
+app.use("/combos",combo)
 app.use("/login", login);
 
 app.use("/register", register);

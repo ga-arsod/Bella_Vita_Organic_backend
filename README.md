@@ -15,7 +15,6 @@
 <ul>
   <li>Gaurav Arsod</li>
   <li>Huzaifa Banegar</li>
-  <li>Sanddeep Yadav</li>
   <li>Shreyash Gedam</li>
   <li>Manish Kumar</li>
 </ul>
